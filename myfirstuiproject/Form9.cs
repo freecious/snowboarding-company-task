@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace myfirstuiproject
 {
@@ -64,6 +65,19 @@ namespace myfirstuiproject
         private void Form9_Load(object sender, EventArgs e)
         {
             getlistmanager();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Process.Start("notepad.exe");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 1)
+                dataGridView1.Rows.RemoveAt(e.RowIndex);
+            else
+                MessageBox.Show("unable to delete content");
         }
     }
 }
